@@ -1,0 +1,4 @@
+protocol,candidate,reference,security_ok,performance_ok,composite_ok,on_par,runtime_ratio,composite_gap,candidate_composite,reference_composite
+r5_s16,baseline_full,no_layer2_fixed_combo,True,True,True,True,1.0308126948763117,0.37830855711305145,0.5207013789437421,0.14239282183069066
+r5_s16,baseline_full,no_layer4_no_ratchet,False,False,False,False,1.651425141521775,-0.2710110019002218,0.49685597492651606,0.7678669768267379
+r5_s16,baseline_full,single_source_kyber,False,False,True,False,1.6806514371385748,0.00010416666666668295,0.47497395833333333,0.47486979166666665

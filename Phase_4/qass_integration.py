@@ -18,14 +18,27 @@ from Phase_4.layer5_encryption import append_layer5_log, decrypt_message, encryp
 from Phase_4.layer6_monitor import SecurityMonitor, append_layer6_log
 
 
+
 BASE_DIR = os.path.dirname(__file__)
-INTEGRATION_CSV = os.path.join(BASE_DIR, "qass_integration_log.csv")
-LAYER1_CSV = os.path.join(BASE_DIR, "layer1_log.csv")
-LAYER2_CSV = os.path.join(BASE_DIR, "layer2_log.csv")
-LAYER3_CSV = os.path.join(BASE_DIR, "layer3_log.csv")
-LAYER4_CSV = os.path.join(BASE_DIR, "layer4_log.csv")
-LAYER5_CSV = os.path.join(BASE_DIR, "layer5_log.csv")
-LAYER6_CSV = os.path.join(BASE_DIR, "layer6_log.csv")
+ARTIFACTS_DIR = os.path.join(BASE_DIR, "artifacts")
+LOGS_DIR = os.path.join(ARTIFACTS_DIR, "logs")
+os.makedirs(LOGS_DIR, exist_ok=True)
+
+INTEGRATION_CSV = os.path.join(LOGS_DIR, "qass_integration_log.csv")
+LAYER1_CSV = os.path.join(LOGS_DIR, "layer1_log.csv")
+LAYER2_CSV = os.path.join(LOGS_DIR, "layer2_log.csv")
+LAYER3_CSV = os.path.join(LOGS_DIR, "layer3_log.csv")
+LAYER4_CSV = os.path.join(LOGS_DIR, "layer4_log.csv")
+LAYER5_CSV = os.path.join(LOGS_DIR, "layer5_log.csv")
+LAYER6_CSV = os.path.join(LOGS_DIR, "layer6_log.csv")
+
+# Clear all log CSVs at the start so logs are overwritten, not appended
+for log_file in [INTEGRATION_CSV, LAYER1_CSV, LAYER2_CSV, LAYER3_CSV, LAYER4_CSV, LAYER5_CSV, LAYER6_CSV]:
+    try:
+        with open(log_file, "w"):
+            pass
+    except Exception:
+        pass
 
 
 CONFIG = {

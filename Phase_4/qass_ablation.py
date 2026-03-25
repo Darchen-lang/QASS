@@ -22,9 +22,16 @@ from Phase_4.layer4_ratchet import QuantumRatchet
 from Phase_4.layer5_encryption import decrypt_message, encrypt_message
 
 BASE_DIR = os.path.dirname(__file__)
-CSV_PATH = os.path.join(BASE_DIR, "ablation_results.csv")
-REPORT_PATH = os.path.join(BASE_DIR, "ablation_report.md")
-PLOT_PATH = os.path.join(BASE_DIR, "qass_ablation_plot.png")
+ARTIFACTS_DIR = os.path.join(BASE_DIR, "artifacts")
+METRICS_DIR = os.path.join(ARTIFACTS_DIR, "metrics")
+FIGURES_DIR = os.path.join(ARTIFACTS_DIR, "figures")
+REPORTS_DIR = os.path.join(BASE_DIR, "reports", "generated")
+for directory in (METRICS_DIR, FIGURES_DIR, REPORTS_DIR):
+    os.makedirs(directory, exist_ok=True)
+
+CSV_PATH = os.path.join(METRICS_DIR, "ablation_results.csv")
+REPORT_PATH = os.path.join(REPORTS_DIR, "ablation_report.md")
+PLOT_PATH = os.path.join(FIGURES_DIR, "qass_ablation_plot.png")
 
 MODES = [
     "baseline_full",

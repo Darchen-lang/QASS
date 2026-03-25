@@ -65,6 +65,25 @@ Run from repository root (`/home/samaksh/Desktop/qass`) in this order:
    - `python Threat_assessment/Grover/plots.py`
    - `python Threat_assessment/Shor's/plots.py`
 
+## Architecture Parity Benchmark
+
+To compare QASS against baseline architectures under the same workload and produce a parity verdict:
+
+`python Phase_4/qass_parity_benchmark.py --repeats 5 --sessions 32 --candidate baseline_full --reference no_layer4_no_ratchet --perf-tolerance 0.20`
+
+Outputs:
+
+- `Phase_4/artifacts/benchmarks/architecture_benchmark_summary.csv`: mean/stdev/95% CI per metric and architecture.
+- `Phase_4/artifacts/benchmarks/architecture_benchmark_scores.csv`: weighted scores and parity gate results.
+- `Phase_4/reports/benchmarks/architecture_benchmark_report.md`: readable benchmark report with final on-par verdict.
+
+Supported architecture modes:
+
+- `baseline_full`
+- `no_layer2_fixed_combo`
+- `no_layer4_no_ratchet`
+- `single_source_kyber`
+
 ## Expected CSV Outputs
 
 Configured in `project_config.py`:
@@ -80,4 +99,14 @@ Configured in `project_config.py`:
 ## Notes
 
 - `pqc_plots.py` keeps a compatibility fallback to `kyber_bench_data.csv` if the new canonical file is not present.
+- Phase 4 artifacts are organized under:
+  - `Phase_4/artifacts/logs`
+  - `Phase_4/artifacts/metrics`
+  - `Phase_4/artifacts/benchmarks`
+  - `Phase_4/artifacts/figures`
+  - `Phase_4/reports/generated`
+  - `Phase_4/reports/benchmarks`
+  - `Phase_4/reports/drafts`
+  - `Phase_4/reports/reference`
+  - `Phase_4/reports/planning`
 - Most scripts append to CSV logs by default; clear files manually if you want a fresh run.

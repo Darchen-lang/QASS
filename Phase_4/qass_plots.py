@@ -20,8 +20,13 @@ from Phase_4.layer5_encryption import encrypt_message
 
 
 BASE_DIR = os.path.dirname(__file__)
-INTEGRATION_CSV = os.path.join(BASE_DIR, "qass_integration_log.csv")
-LAYER6_CSV = os.path.join(BASE_DIR, "layer6_log.csv")
+ARTIFACTS_DIR = os.path.join(BASE_DIR, "artifacts")
+LOGS_DIR = os.path.join(ARTIFACTS_DIR, "logs")
+FIGURES_DIR = os.path.join(ARTIFACTS_DIR, "figures")
+os.makedirs(FIGURES_DIR, exist_ok=True)
+
+INTEGRATION_CSV = os.path.join(LOGS_DIR, "qass_integration_log.csv")
+LAYER6_CSV = os.path.join(LOGS_DIR, "layer6_log.csv")
 
 
 def _bytes_to_bits(data: bytes) -> np.ndarray:
@@ -80,7 +85,7 @@ def plot_session_key_entropy(count: int = 20) -> None:
     plt.title("Session Key Entropy Across Sessions")
     plt.grid(True, linestyle="--", linewidth=0.5)
     plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "qass_session_key_entropy.png"), dpi=300)
+    plt.savefig(os.path.join(FIGURES_DIR, "qass_session_key_entropy.png"), dpi=300)
     plt.show()
 
 
@@ -98,7 +103,7 @@ def plot_combination_distribution(count: int = 100) -> None:
     plt.title("Combination Selection Distribution Across Sessions")
     plt.grid(True, linestyle="--", linewidth=0.5, axis="y")
     plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "qass_combination_distribution.png"), dpi=300)
+    plt.savefig(os.path.join(FIGURES_DIR, "qass_combination_distribution.png"), dpi=300)
     plt.show()
 
 
@@ -122,7 +127,7 @@ def plot_ratchet_key_divergence(count: int = 20) -> None:
     plt.title("Ratchet Key Divergence Across Consecutive Sessions")
     plt.grid(True, linestyle="--", linewidth=0.5)
     plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "qass_ratchet_key_divergence.png"), dpi=300)
+    plt.savefig(os.path.join(FIGURES_DIR, "qass_ratchet_key_divergence.png"), dpi=300)
     plt.show()
 
 
@@ -155,7 +160,7 @@ def plot_layer_timing_breakdown() -> None:
     plt.legend()
     plt.grid(True, linestyle="--", linewidth=0.5, axis="y")
     plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "qass_layer_timing_breakdown.png"), dpi=300)
+    plt.savefig(os.path.join(FIGURES_DIR, "qass_layer_timing_breakdown.png"), dpi=300)
     plt.show()
 
 
@@ -190,7 +195,7 @@ def plot_security_monitoring_dashboard() -> None:
     axes[2].grid(True, linestyle="--", linewidth=0.5)
     plt.xticks(rotation=30, ha="right")
     plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "qass_security_monitor_dashboard.png"), dpi=300)
+    plt.savefig(os.path.join(FIGURES_DIR, "qass_security_monitor_dashboard.png"), dpi=300)
     plt.show()
 
 
@@ -232,7 +237,7 @@ def plot_cipher_comparison() -> None:
     plt.legend()
     plt.grid(True, linestyle="--", linewidth=0.5)
     plt.tight_layout()
-    plt.savefig(os.path.join(BASE_DIR, "qass_cipher_comparison.png"), dpi=300)
+    plt.savefig(os.path.join(FIGURES_DIR, "qass_cipher_comparison.png"), dpi=300)
     plt.show()
 
 

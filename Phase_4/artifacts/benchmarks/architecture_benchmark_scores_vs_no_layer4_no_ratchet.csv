@@ -1,0 +1,15 @@
+mode,security_score,performance_score,agility_score,composite_score
+baseline_full,0.4497857862903226,0.0,1.0,0.4748928931451613
+no_layer2_fixed_combo,0.42421513510272874,0.13714688955621335,0.0,0.2463942899404177
+no_layer4_no_ratchet,0.5982404167875849,0.9097369161668635,0.9333333333333332,0.7598877707688416
+single_source_kyber,0.44953377016129037,1.0,0.0,0.4747668850806452
+
+parity_field,value
+candidate,baseline_full
+reference,no_layer4_no_ratchet
+security_ok,False
+performance_ok,False
+composite_ok,False
+runtime_ratio,1.6490883651385004
+composite_gap,-0.2849948776236803
+on_par,False

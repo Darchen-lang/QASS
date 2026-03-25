@@ -23,8 +23,14 @@ from Phase_4.layer5_encryption import decrypt_message, encrypt_message
 from Phase_4.layer6_monitor import SecurityMonitor
 
 BASE_DIR = os.path.dirname(__file__)
-CSV_PATH = os.path.join(BASE_DIR, "statistical_validation.csv")
-REPORT_PATH = os.path.join(BASE_DIR, "statistical_validation_report.md")
+ARTIFACTS_DIR = os.path.join(BASE_DIR, "artifacts")
+METRICS_DIR = os.path.join(ARTIFACTS_DIR, "metrics")
+REPORTS_DIR = os.path.join(BASE_DIR, "reports", "generated")
+for directory in (METRICS_DIR, REPORTS_DIR):
+    os.makedirs(directory, exist_ok=True)
+
+CSV_PATH = os.path.join(METRICS_DIR, "statistical_validation.csv")
+REPORT_PATH = os.path.join(REPORTS_DIR, "statistical_validation_report.md")
 
 
 def _normal_ci(mean: float, stdev: float, n: int, alpha: float = 0.05) -> Tuple[float, float]:

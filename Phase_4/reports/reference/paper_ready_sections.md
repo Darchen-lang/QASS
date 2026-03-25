@@ -7,22 +7,22 @@ Phase 4 was implemented and validated end to end. Integration demos confirmed co
 
 ## Results
 ### End-to-End Validation
-All five required integration demonstrations completed successfully through Layer 1 to Layer 6. Decryption correctness was preserved across baseline and swapped configurations. Evidence is captured in [qass_integration_log.csv](qass_integration_log.csv) and per-layer logs [layer1_log.csv](layer1_log.csv), [layer2_log.csv](layer2_log.csv), [layer3_log.csv](layer3_log.csv), [layer4_log.csv](layer4_log.csv), [layer5_log.csv](layer5_log.csv), and [layer6_log.csv](layer6_log.csv).
+All five required integration demonstrations completed successfully through Layer 1 to Layer 6. Decryption correctness was preserved across baseline and swapped configurations. Evidence is captured in [qass_integration_log.csv](../../artifacts/logs/qass_integration_log.csv) and per-layer logs [layer1_log.csv](../../artifacts/logs/layer1_log.csv), [layer2_log.csv](../../artifacts/logs/layer2_log.csv), [layer3_log.csv](../../artifacts/logs/layer3_log.csv), [layer4_log.csv](../../artifacts/logs/layer4_log.csv), [layer5_log.csv](../../artifacts/logs/layer5_log.csv), and [layer6_log.csv](../../artifacts/logs/layer6_log.csv).
 
 ### DSR and Selector Behavior
-All seven non-empty source combinations were demonstrated with reproducible seeds in [dsr_combo_coverage.csv](dsr_combo_coverage.csv). Statistical selector testing over 400 sessions produced chi-square 9.745000 and p-value 0.135810, with total variation distance 0.068571 from uniform. Results are reported in [statistical_validation_report.md](statistical_validation_report.md) and [statistical_validation.csv](statistical_validation.csv).
+All seven non-empty source combinations were demonstrated with reproducible seeds in [dsr_combo_coverage.csv](../../artifacts/metrics/dsr_combo_coverage.csv). Statistical selector testing over 400 sessions produced chi-square 9.745000 and p-value 0.135810, with total variation distance 0.068571 from uniform. Results are reported in [statistical_validation_report.md](../generated/statistical_validation_report.md) and [statistical_validation.csv](../../artifacts/metrics/statistical_validation.csv).
 
 ### Ratchet Divergence
-Ratchet validation showed mean absolute consecutive-key correlation 0.058572, maximum 0.161200, and mean consecutive-key Hamming rate 0.502979 with 95% CI [0.494281, 0.511677]. All tested ratchet keys were unique. Supporting artifacts: [statistical_validation_report.md](statistical_validation_report.md) and [qass_ratchet_key_divergence.png](qass_ratchet_key_divergence.png).
+Ratchet validation showed mean absolute consecutive-key correlation 0.058572, maximum 0.161200, and mean consecutive-key Hamming rate 0.502979 with 95% CI [0.494281, 0.511677]. All tested ratchet keys were unique. Supporting artifacts: [statistical_validation_report.md](../generated/statistical_validation_report.md) and [qass_ratchet_key_divergence.png](../../artifacts/figures/qass_ratchet_key_divergence.png).
 
 ### Agility Correctness
-Across 150 trials per cipher, AES-256-GCM and ChaCha20-Poly1305 each achieved success rate 1.000000 with 95% CI [0.975030, 1.000000]. Cipher timing comparison is provided in [qass_cipher_comparison.png](qass_cipher_comparison.png).
+Across 150 trials per cipher, AES-256-GCM and ChaCha20-Poly1305 each achieved success rate 1.000000 with 95% CI [0.975030, 1.000000]. Cipher timing comparison is provided in [qass_cipher_comparison.png](../../artifacts/figures/qass_cipher_comparison.png).
 
 ### Monitoring Performance
-Over 200 synthetic trials, benign clear rate was 1.000000 (95% CI [0.981155, 1.000000]) and attack detection rate was 1.000000 (95% CI [0.981155, 1.000000]). Evidence is in [layer6_log.csv](layer6_log.csv) and [qass_security_monitor_dashboard.png](qass_security_monitor_dashboard.png).
+Over 200 synthetic trials, benign clear rate was 1.000000 (95% CI [0.981155, 1.000000]) and attack detection rate was 1.000000 (95% CI [0.981155, 1.000000]). Evidence is in [layer6_log.csv](../../artifacts/logs/layer6_log.csv) and [qass_security_monitor_dashboard.png](../../artifacts/figures/qass_security_monitor_dashboard.png).
 
 ### Ablation
-Ablation modes in [ablation_report.md](ablation_report.md) and [ablation_results.csv](ablation_results.csv) showed:
+Ablation modes in [ablation_report.md](../generated/ablation_report.md) and [ablation_results.csv](../../artifacts/metrics/ablation_results.csv) showed:
 - Baseline full stack: unique combinations 6, predictability 0.25
 - No Layer 2 fixed combination: unique combinations 1, predictability 1.0
 - Single-source Kyber: unique combinations 1, predictability 1.0
